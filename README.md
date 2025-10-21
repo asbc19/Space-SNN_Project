@@ -1,7 +1,7 @@
 # Space-SNN Project
 - Hardware Accelerator for StereoSpike Network.
 
-## 1. Design Space Exploration
+## 1. Design Space Exploration (DSE)
 - Define the suitable hardware architecture to leverage all the StereoSpike's hardware-friendly characteristics.
   1. Binary inter-layer activations.
   2. Stateless PLIF neurons.
