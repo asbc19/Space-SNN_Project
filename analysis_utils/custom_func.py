@@ -169,11 +169,11 @@ def analyze_original_mem_traffic(
 
     ## Data visualization for analysis
     # Plot settings
-    p_dpi = 100
-    fig_w_in = 6
-    fig_h_in = 10
+    p_dpi = 600
+    fig_w_in = 10
+    fig_h_in = 4
     palette = {"UE": p_blue, "SE": p_orange, "RE": p_green}
-    fig, axes = plt.subplots(3, 1, figsize=(fig_w_in, fig_h_in), dpi=p_dpi, sharex=True)
+    fig, axes = plt.subplots(1, 3, figsize=(fig_w_in, fig_h_in), dpi=p_dpi, sharex=False)
     ax0, ax1, ax2 = axes[0], axes[1], axes[2]
 
     # Step 1: Collect traffic for each architecture
@@ -216,7 +216,7 @@ def analyze_original_mem_traffic(
     # Labeling
     ax0.set_xlabel('')
     ax0.set_ylabel("off-chip Traffic (Mb)")
-    ax0.set_title("Memory Traffic Distribution: off-chip")
+    ax0.set_title("Off-chip")
     ax0.grid(True, linestyle='--', alpha=0.4)
 
     # Zoom-in off-chip traffic for SE and RE architectures
@@ -226,7 +226,7 @@ def analyze_original_mem_traffic(
     # Labeling
     ax1.set_xlabel('')
     ax1.set_ylabel("off-chip Traffic (Mb)")
-    ax1.set_title("Memory Traffic Distribution: off-chip (zoom-in)")
+    ax1.set_title("Off-chip (zoom-in)")
     ax1.grid(True, linestyle='--', alpha=0.4)
     
     sns.boxplot(x="Architecture", y="on_traffic", data=df1, ax=ax2, 
@@ -237,9 +237,10 @@ def analyze_original_mem_traffic(
     # Labeling
     ax2.set_xlabel('')
     ax2.set_ylabel("on-chip Traffic (Mb)")
-    ax2.set_title("Memory Traffic Distribution: on-chip")
+    ax2.set_title("On-chip")
     ax2.grid(True, linestyle='--', alpha=0.4)
 
+    plt.suptitle("Memory Traffic Distribution")
     plt.tight_layout()
     plt.show()
 
@@ -403,9 +404,9 @@ def analyze_prop_mem_traffic(
     
     ## Data visualization for analysis
     # Plot settings
-    p_dpi = 100
+    p_dpi = 600
     fig_w_in = 10
-    fig_h_in = 6
+    fig_h_in = 5
     palette = {"off-chip": p_blue, "on-chip": p_orange}
     # fig, axes = plt.subplots(3, 1, figsize=(fig_w_in, fig_h_in), dpi=p_dpi, sharex=True)
     # ax0, ax1, ax2 = axes[0], axes[1], axes[2]
@@ -429,7 +430,8 @@ def analyze_prop_mem_traffic(
 
     # Step 3: Plot boxplot + jittered points
     sns.boxplot(x="Architecture", y="off_traffic", data=df1, 
-                ax=ax0, palette=palette, hue="Architecture", showfliers=False)
+                ax=ax0, palette=palette, hue="Architecture", showfliers=False,
+                width=0.4)
     # sns.stripplot(x="Architecture", y="Latency", data=df,
     #               color=".3", jitter=False, size=5, alpha=0.7)
 
@@ -444,7 +446,8 @@ def analyze_prop_mem_traffic(
     ax0.grid(True, linestyle='--', alpha=0.4)
 
     sns.boxplot(x="Architecture", y="on_traffic", data=df, 
-                ax=ax1, palette=palette, hue="Architecture", showfliers=False)
+                ax=ax1, palette=palette, hue="Architecture", showfliers=False,
+                width=0.4)
     # sns.stripplot(x="Architecture", y="Latency", data=df,
     #               color=".3", jitter=False, size=5, alpha=0.7)
 
@@ -765,9 +768,9 @@ def analyze_original_latency(
     
     ## Data visualization for analysis
     # Plot settings
-    p_dpi = 100
-    fig_w_in = 12
-    fig_h_in = 7
+    p_dpi = 600
+    fig_w_in = 10
+    fig_h_in = 5
     palette = {"UE": p_blue, "SE": p_orange, "RE": p_green}
     # fig, axes = plt.subplots(3, 1, figsize=(fig_w_in, fig_h_in), dpi=p_dpi, sharex=True)
     # ax0, ax1, ax2 = axes[0], axes[1], axes[2]
@@ -797,7 +800,7 @@ def analyze_original_latency(
     #               color=".3", jitter=False, size=5, alpha=0.7)
 
     # Set the ticks every 0.1 since seaborn autoscale may not set them properly
-    ax1.yaxis.set_major_locator(MultipleLocator(0.05))
+    ax1.yaxis.set_major_locator(MultipleLocator(0.1))
     # set the minimum limit to 0
     ax1.set_ylim(bottom=0)
     
@@ -1094,8 +1097,8 @@ def analyze_se_latency(
     # -------------------------
     scale = 1_000_000.0   # show values in millions (set to 1 for raw cycles)
     fig_w = 16
-    fig_h = 3
-    p_dpi = 100
+    fig_h = 4
+    p_dpi = 600
     palette = {
         'stem': p_blue,
         'conv': p_blue,
