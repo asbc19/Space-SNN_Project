@@ -9,6 +9,8 @@
 - A Jupiter Notebook is included with all the details.     
 
 ## 2. How to use the Jupiter Notebook
+- Detailed information regarding the math formulas are included in the Notebook.
+
 1. Import libraries and customized functions.
 
 https://github.com/user-attachments/assets/357162b3-1adc-40a1-a9e9-779b417108e3
@@ -35,3 +37,21 @@ network_layers: List[ConvLayerSpec] = [
     ConvLayerSpec("depth2", (64, 130, 173), (1, 260, 346)),
     ConvLayerSpec("depth1", (32, 260, 346), (1, 260, 346))]
 ```
+
+3. Memory traffic and latency can be analyzed for each conventional hardware architecture for DWS convolution.
+
+https://github.com/user-attachments/assets/081f55ab-b986-46d3-97d0-a6ac80161c5e
+
+
+3.1. Memory Traffic
+  - User can define the bitwidth for weights, pfmaps, and ofmaps.
+```python
+# Bitwidths for weights, pfmap, and ofmap
+n_bits = (8, 16, 16)
+```
+  - The function provides a comparative analysis (box plots) and individual results.
+
+https://github.com/user-attachments/assets/4ab03951-12b9-4824-8ae8-d6ce1b8802a3
+
+
+   
