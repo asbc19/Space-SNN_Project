@@ -75,7 +75,32 @@ dw_cols_intra = 120  # Number of columns for DW in RE for intra-channel
 
 https://github.com/user-attachments/assets/c6d55796-e5b5-418b-88eb-32b0195c9d8b
 
+4. Memory traffic and latency can be analyzed for our proposed hardware architecture for DWS convolution.
 
+https://github.com/user-attachments/assets/bb840863-c027-48d0-afb9-6798a1bf11c3
 
+4.1. Memory Traffic
+  - User can define the bitwidth for weights, pfmaps, and ofmaps.
+```python
+# Bitwidths for weights, pfmap, and ofmap
+n_bits = (8, 16, 16)
+```
+  - The function provides a comparative analysis (box plots) and individual results.
 
-   
+https://github.com/user-attachments/assets/1fbd659d-11f7-4368-bb06-2d0aa388dcb9
+
+4.2.1. Latency Exploration
+  - User can define ranges for the array dimensions and observe how the latency varies.
+
+https://github.com/user-attachments/assets/07275428-751d-44ae-971e-5d11e25d7a2e
+
+4.2.2. Latency per Layer
+  - Based on the previous results, the user can choose a specific point (array size) to explore in detail with latency per layer.
+```python
+# (row, column) --> (i,j)
+# SE
+se_array_dw = (49, 32)
+se_array_pw = (32, 32)
+```
+
+https://github.com/user-attachments/assets/3e03c4a9-804a-438b-8d93-34dc072efb86
