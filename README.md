@@ -51,7 +51,31 @@ n_bits = (8, 16, 16)
 ```
   - The function provides a comparative analysis (box plots) and individual results.
 
-https://github.com/user-attachments/assets/4ab03951-12b9-4824-8ae8-d6ce1b8802a3
+https://github.com/user-attachments/assets/d584598d-f062-46c5-a375-4bf7d12b8e22
+
+3.2. Latency
+  - User can define the the array size for each architecture.
+```python
+# (row, column) --> (i,j)
+
+# UE
+ue_array = (49, 128)
+
+# SE
+se_array_dw = (49, 64)
+se_array_pw = (64, 128)
+
+# RE
+re_array = (64, 128)
+dw_cols_inter = 64  # Number of columns for DW in RE for inter-channel
+dw_cols_inter_prediction = 127  # Number of columns for DW in RE for inter-channel operation in prediction layers
+dw_cols_intra = 120  # Number of columns for DW in RE for intra-channel
+```
+  - The function provides a comparative analysis (histograms and box plots) and individual results.
+
+https://github.com/user-attachments/assets/c6d55796-e5b5-418b-88eb-32b0195c9d8b
+
+
 
 
    
