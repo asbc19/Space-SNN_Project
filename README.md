@@ -7,3 +7,8 @@
   2. Stateless PLIF neurons.
   3. Depthwise Separable (DWS) convolutions.
 - A Jupiter Notebook is included with all the details.     
+
+## 2. How to use the Jupiter Notebook
+1. Import libraries and customized functions.
+https://github.com/user-attachments/assets/357162b3-1adc-40a1-a9e9-779b417108e3
+
