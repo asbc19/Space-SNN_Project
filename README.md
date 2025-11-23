@@ -21,6 +21,11 @@ https://github.com/user-attachments/assets/357162b3-1adc-40a1-a9e9-779b417108e3
 # All layers have the same DW filter size
 filter_size = (7, 7)
 
+# Define Layer Dimensions
+# Each ConvLayerSpec takes (layer_name, input_dims, output_dims)
+# input_dims and output_dims are in the format (channels, height, width)
+# input_dims (C, H, W)
+# output_dims (M, P, Q)
 network_layers: List[ConvLayerSpec] = [
     ConvLayerSpec("stem", (4, 260, 346), (32, 260, 346)),
     ConvLayerSpec("conv1", (32, 260, 346), (64, 130, 173)),
